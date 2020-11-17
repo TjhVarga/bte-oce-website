@@ -8,12 +8,17 @@ import Showcase from './pages/Showcase'
 import Team from './pages/Team';
 import Apply from './pages/Apply';
 import FAQ from './pages/FAQ'
+import Login from './pages/Login';
 import '../css/App.css';
 import 'typeface-roboto';
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 
 
 const App = () => {
+
+    library.add(fab);
     return(
         <div className="container">
             <Router history={history}>
@@ -25,6 +30,7 @@ const App = () => {
                         <Route path="/team"  exact component={Team} />
                         <Route path="/apply" exact component={Apply} />
                         <Route path="/FAQ" exact component={FAQ} />
+                        <Route path="/login" component={Login}/>
                     </Switch>
                     <Footer/>
                 </div>

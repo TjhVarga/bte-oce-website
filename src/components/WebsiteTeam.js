@@ -2,7 +2,7 @@ import React from 'react';
 import '../../css/pages/Team.scss';
 import TeamGroup from './team/TeamGroup';
 
-const Team = () => {
+const WebsiteTeam = () => {
     const Teams = {teams: [
         {
             id: 0,
@@ -70,4 +70,4 @@ const Team = () => {
     
 }
 
-export default Team;
+export default WebsiteTeam;

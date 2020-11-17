@@ -1,5 +1,5 @@
-$breakpoint-tablet: 1030px;
-$breakpoint-phone: 840px;
+$breakpoint-tablet: 1130px;
+$breakpoint-phone: 900px;
 header {
     display:flex;
     justify-content: space-between;
@@ -8,20 +8,28 @@ header {
     position:sticky;
     top:0;
     padding: 14px 45px;
-    background-color: #3A77A7;
+    background-color: var(--navbar-bg);
     z-index: 999;
+    box-shadow: 0px 0px 2px black;
+
+    &.landing{
+        background-color: rgba(58, 119, 167, 0.26);
+    }
+
     li, a {
         font-family: 'Open Sans', sans-serif;
         color: white;
         font-weight: 300;
         font-size: 17px;
         text-decoration: none;
+        opacity:1;
     }
     span {
-        border: 1px solid var(--white);
+        border: 1px solid var(--text-color);
         border: 1px solid #FFFFFF;
         height: 40px;
         margin: 15.5px;
+        opacity:1;
     }
     .logo {
         font-weight: 400;
@@ -30,22 +38,25 @@ header {
         align-items: center;
         cursor: pointer;
         transition: none;
-        a:hover {
-            color: #FFFFFF;
+        opacity:1;
+        &:hover {
+            color: var(--text-color);
         }
         
         img {
             height:100px;
-            :hover {
-                color: #FFFFFF;
+            opacity:1;
+            &:hover {
+                color: var(--text-color);
             }
         }
         p {
             display: inline-block;
             padding-left: 25px;
             font-size: 20px;
-            :hover {
-                color: #FFFFFF;
+            opacity:1;
+            &:hover {
+                color: var(--text-color);
             }
         }
         
@@ -53,6 +64,7 @@ header {
     .header-nav {
         list-style: none;
         padding:0;
+        opacity:1;
         
         li {
             display: inline-block;            
@@ -62,7 +74,7 @@ header {
                 transition: all 0.3s ease 0s;
             }
             a:hover {
-                color: #71a4d1;
+                color: var(--header-nav-hover);
             }
             
         }
@@ -70,17 +82,18 @@ header {
 
     .navbar-user {
         border-radius: 43px;
-        display: flex;
+        display: grid;
         background-color:  #36546F;
         height: 60px;
         width: 200px;
         justify-content: center;
         align-items: center;
+        
         transition: all 0.3s ease 0s;
-
-        :hover {
+        opacity:1;
+        &:hover {
             color: white;
-            background-color: #3A77A7;
+            background-color: #3184c4;
         }
     }
 
@@ -89,11 +102,12 @@ header {
         position: relative;
         justify-content: center;
         align-items: center;
-        
+        opacity:1;
     }
-
-
 }
+
+
+
 
 @media(max-width: $breakpoint-tablet)
 {
@@ -109,6 +123,12 @@ header {
 @media(max-width: $breakpoint-phone)
 {
     header {
+        height: 75px;
+        .logo {
+            img{
+                height:50px;
+            }
+        }
         .header-nav {
             display: none;
         }
@@ -117,7 +137,8 @@ header {
         }
         .menu-btn {
             display: flex;
-            width: 80px;
+            width: 75px;
+            height:calc(calc(6px * 3) + calc(16px*2));
             cursor: pointer;
             transition: all .5s ease-in-out;
 

@@ -1,15 +1,18 @@
 import React from 'react';
 import '../css/Header.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation  } from 'react-router-dom';
 import logo from '../img/logo@2x.png';
 import UserProfile from './header/UserProfile';
 import UserLoginButton from './header/UserLoginButton';
 
-const { isMenuClosed } = true;
+let isMenuClosed = true;
+
 
 const Header = () => {
+    const isLanding = useLocation().pathname === "/";
     return(
-        <header>
+        
+        <header className={isLanding ? "landing" : ""}>
             <Link to="/" className="logo">
                 <img src={ logo } alt="logo"/>
                 <p className="logo-text">Oceania Build Team</p>
@@ -25,6 +28,12 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to="/team" className="nav_button">The Team</Link>
+                    </li>
+                    <li>
+                        <span className="link-seperate"/>
+                    </li>
+                    <li>
+                        <Link to="/map" className="nav_button">Map</Link>
                     </li>
                     <li>
                         <span className="link-seperate"/>
@@ -48,8 +57,7 @@ const Header = () => {
             </nav>
 
             <UserHeader />
-            <UserHeader/>
-            <div className='menu-btn ' onClick={ toggleMenu }>
+            <div className={isMenuClosed ? 'menu-btn':'menu-btn mobile-open'} onClick={ toggleMenu }>
                 <div className="menu-btn_burger"></div>
             </div>
 
@@ -68,7 +76,8 @@ function UserHeader(props) {
 }
 
 function toggleMenu(props) {
-    this.isMenuClosed = !this.isMenuClosed;
+    isMenuClosed = !isMenuClosed;
+    return;
 }
 
 
